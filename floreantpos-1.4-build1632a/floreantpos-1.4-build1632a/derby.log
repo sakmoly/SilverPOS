@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Thu Jul 20 13:18:43 AST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-015d-5f81-b7c1-000006df12e8 
+on database directory C:\Users\Thomas\Documents\NetBeansProjects\FLPOS\floreantpos-1.4-build1632a\floreantpos-1.4-build1632a\database\derby-single\posdb  with class loader sun.misc.Launcher$AppClassLoader@42a57993 
+Loaded from file:/C:/Users/Thomas/Documents/NetBeansProjects/FLPOS/floreantpos-1.4-build1632a/floreantpos-1.4-build1632a/lib/derby-10.8.1.2.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_131-b11
+user.dir=C:\Users\Thomas\Documents\NetBeansProjects\FLPOS\floreantpos-1.4-build1632a\floreantpos-1.4-build1632a
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
