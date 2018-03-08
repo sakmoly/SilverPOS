@@ -416,7 +416,7 @@ public class ReceiptPrintService {
 		map.put(GUEST_COUNT, POSConstants.RECEIPT_REPORT_GUEST_NO_LABEL + ticket.getNumberOfGuests());
 		map.put(SERVER_NAME, POSConstants.RECEIPT_REPORT_SERVER_LABEL + ticket.getOwner());
 		map.put(REPORT_DATE, POSConstants.RECEIPT_REPORT_DATE_LABEL + Application.formatDate(new Date()));
-                map.put(TOKEN_NO, "Token No: " + ticket.getTokenNo()); //Thomas
+                map.put(TOKEN_NO, "Tocken#:" + ticket.getTokenNo()); //Thomas
 
 		StringBuilder ticketHeaderBuilder = buildTicketHeader(ticket, printProperties);
                 
@@ -837,7 +837,7 @@ public class ReceiptPrintService {
 
 		map.put(SERVER_NAME, POSConstants.RECEIPT_REPORT_SERVER_LABEL + ticket.getServerName());
 		map.put(REPORT_DATE, Messages.getString("ReceiptPrintService.119") + reportDateFormat.format(new Date())); //$NON-NLS-1$
-                map.put(TOKEN_NO, "Token No: " + ticket.getTokenNo()); //Thomas
+                map.put(TOKEN_NO, "Tocken#:" + ticket.getTokenNo()); //Thomas
 		map.put("ticketHeader", Messages.getString("ReceiptPrintService.10")); //$NON-NLS-1$ //$NON-NLS-2$
 		String ticketType = ticket.getTicketType();
 		if (StringUtils.isNotEmpty(ticketType)) {
@@ -859,7 +859,7 @@ public class ReceiptPrintService {
 		map.put(SHOW_HEADER_SEPARATOR, Boolean.TRUE);
 		map.put(SHOW_HEADER_SEPARATOR, Boolean.TRUE);
 		map.put(CHECK_NO, POSConstants.RECEIPT_REPORT_TICKET_NO_LABEL + ticket.getTicketId() + "-" + ticket.getSequenceNumber());
-		map.put(TOKEN_NO, "Token No: " + ticket.getTokenNo()); //Thomas
+		map.put(TOKEN_NO, "Tocken#:" + ticket.getTokenNo()); //Thomas
                 map.put(GUEST_COUNT,POSConstants.RECEIPT_REPORT_GUEST_NO_LABEL+ticket.getGuestCount());
                 if (ticket.getTableNumbers() != null && ticket.getTableNumbers().size() > 0) {
 			map.put(TABLE_NO, POSConstants.RECEIPT_REPORT_TABLE_NO_LABEL + ticket.getTableNumbers());
