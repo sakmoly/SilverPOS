@@ -32,6 +32,7 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 	public static String PROP_ADDRESS_LINE2 = "addressLine2"; //$NON-NLS-1$
 	public static String PROP_ADDRESS_LINE3 = "addressLine3"; //$NON-NLS-1$
 	public static String PROP_CURRENCY_SYMBOL = "currencySymbol"; //$NON-NLS-1$
+        public static String PROP_MAX_TOKEN_NO = "MaxTokenNo"; //$NON-NLS-1$
         public static String PROP_TOKEN_NO = "tokenNo"; //$NON-NLS-1$
 
 
@@ -74,6 +75,7 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 		protected java.lang.String ticketFooterMessage;
 		protected java.lang.Boolean itemPriceIncludesTax;
 		protected java.lang.Boolean allowModifierMaxExceed;
+                protected java.lang.Integer maxTokenNo;
                 protected java.lang.Integer tokenNo;
 
 
@@ -369,7 +371,13 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 	public void setAllowModifierMaxExceed (java.lang.Boolean allowModifierMaxExceed) {
 		this.allowModifierMaxExceed = allowModifierMaxExceed;
 	}
+public Integer getMaxTokenNo() {
+        return maxTokenNo;
+    }
 
+    public void setMaxTokenNo(Integer tokenNo) {
+        this.maxTokenNo = tokenNo;
+    }
     public Integer getTokenNo() {
         return tokenNo;
     }

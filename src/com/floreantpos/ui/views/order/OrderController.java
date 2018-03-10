@@ -237,9 +237,16 @@ public class OrderController implements OrderListener, CategorySelectionListener
         if (newTicket) {
             RestaurantDAO dao = new RestaurantDAO();
             Restaurant restaurant = dao.get(Integer.valueOf(1));
+            int maxTokenNo = restaurant.getMaxTokenNo();
             int tokenNo = restaurant.getTokenNo();
             ticket.setTokenNo(String.valueOf(tokenNo));
-            restaurant.setTokenNo(tokenNo + 1);
+            if(maxTokenNo==0)
+                restaurant.setTokenNo(0);
+            else if(tokenNo>=maxTokenNo)
+                restaurant.setTokenNo(1);
+            else
+                restaurant.setTokenNo(tokenNo + 1);
+                
             dao.saveOrUpdate(restaurant);
         }
         TicketDAO ticketDAO = new TicketDAO();

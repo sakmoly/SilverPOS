@@ -51,6 +51,7 @@ public class RestaurantConfigurationView extends ConfigurationView {
 	private POSTextField tfTicketFooter;
 	private JTextField tfZipCode;
         private JTextField tfTokenNo;
+        private JTextField tfMaxTokenNo;
 
 	public RestaurantConfigurationView() {
 		setLayout(new BorderLayout());
@@ -139,12 +140,21 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		tfTicketFooter = new POSTextField();
 		contentPanel.add(tfTicketFooter, "cell 1 14 3 1,growx"); //$NON-NLS-1$
 
+                JLabel lblMaxTokenNo = new JLabel("Max TokenNo"); //$NON-NLS-1$
+		contentPanel.add(lblMaxTokenNo, "cell 0 15,alignx trailing"); //$NON-NLS-1$
+
+		tfMaxTokenNo = new JTextField();
+		contentPanel.add(tfMaxTokenNo, "cell 1 15,growx"); //$NON-NLS-1$
+		tfMaxTokenNo.setColumns(5);
+                
+                
                 JLabel lblTokenNo = new JLabel("Next TokenNo"); //$NON-NLS-1$
-		contentPanel.add(lblTokenNo, "cell 0 15,alignx trailing"); //$NON-NLS-1$
+		contentPanel.add(lblTokenNo, "cell 0 16,alignx trailing"); //$NON-NLS-1$
 
 		tfTokenNo = new JTextField();
-		contentPanel.add(tfTokenNo, "cell 1 15,growx"); //$NON-NLS-1$
-		tfTokenNo.setColumns(10);
+		contentPanel.add(tfTokenNo, "cell 1 16,growx"); //$NON-NLS-1$
+		tfTokenNo.setColumns(5);
+                
                 
 		JScrollPane scrollPane = new JScrollPane(contentPanel);
 		scrollPane.setBorder(null);
@@ -169,12 +179,14 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		int tables = 0;
 		double serviceCharge = 0;
 		double gratuityPercentage = 0;
+                int maxTokenNo=0;
                 int tokenNo=0;
 		name = tfRestaurantName.getText();
 		addr1 = tfAddressLine1.getText();
 		addr2 = tfAddressLine2.getText();
 		addr3 = tfAddressLine3.getText();
 		telephone = tfTelephone.getText();
+                maxTokenNo=Integer.parseInt(tfMaxTokenNo.getText());
                 tokenNo=Integer.parseInt(tfTokenNo.getText());
 		//currencyName = tfCurrencyName.getText();
 		//currencySymbol = tfCurrencySymbol.getText();
@@ -211,6 +223,7 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		restaurant.setServiceChargePercentage(serviceCharge);
 		restaurant.setDefaultGratuityPercentage(gratuityPercentage);
 		restaurant.setTicketFooterMessage(tfTicketFooter.getText());
+                restaurant.setMaxTokenNo(maxTokenNo);
                 restaurant.setTokenNo(tokenNo);
 		dao.saveOrUpdate(restaurant);
 
@@ -235,8 +248,16 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		tfServiceCharge.setText(String.valueOf(restaurant.getServiceChargePercentage()));
 		tfDefaultGratuity.setText(String.valueOf(restaurant.getDefaultGratuityPercentage()));
 		tfTicketFooter.setText(restaurant.getTicketFooterMessage());
-                tfTokenNo.setText(String.valueOf(restaurant.getTokenNo()));
-
+                if(String.valueOf(restaurant.getMaxTokenNo())=="null")
+                    tfMaxTokenNo.setText("0");
+                else
+                    tfMaxTokenNo.setText(String.valueOf(restaurant.getMaxTokenNo())); 
+                
+                 if(String.valueOf(restaurant.getTokenNo())=="null")
+                    tfTokenNo.setText("0");
+                else
+                    tfTokenNo.setText(String.valueOf(restaurant.getTokenNo()));
+                
 		setInitialized(true);
 	}
 
