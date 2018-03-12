@@ -52,6 +52,9 @@ public class RestaurantConfigurationView extends ConfigurationView {
 	private JTextField tfZipCode;
         private JTextField tfTokenNo;
         private JTextField tfMaxTokenNo;
+        
+        private JTextField tfMBWidth;
+        private JTextField tfMBHieght;
 
 	public RestaurantConfigurationView() {
 		setLayout(new BorderLayout());
@@ -155,6 +158,20 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		contentPanel.add(tfTokenNo, "cell 1 16,growx"); //$NON-NLS-1$
 		tfTokenNo.setColumns(5);
                 
+                JLabel lblMBWidth = new JLabel("Menu Button Width"); //$NON-NLS-1$
+		contentPanel.add(lblMBWidth, "cell 0 17,alignx trailing"); //$NON-NLS-1$
+
+		tfMBWidth = new JTextField();
+		contentPanel.add(tfMBWidth, "cell 1 17,growx"); //$NON-NLS-1$
+		tfMBWidth.setColumns(5);
+                
+                JLabel lblMBHieght = new JLabel("Menu Button Hieght"); //$NON-NLS-1$
+		contentPanel.add(lblMBHieght, "cell 0 18,alignx trailing"); //$NON-NLS-1$
+
+		tfMBHieght = new JTextField();
+		contentPanel.add(tfMBHieght, "cell 1 18,growx"); //$NON-NLS-1$
+		tfMBHieght.setColumns(5);
+                
                 
 		JScrollPane scrollPane = new JScrollPane(contentPanel);
 		scrollPane.setBorder(null);
@@ -181,6 +198,7 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		double gratuityPercentage = 0;
                 int maxTokenNo=0;
                 int tokenNo=0;
+                int mb_width=0,mb_hieght=0;
 		name = tfRestaurantName.getText();
 		addr1 = tfAddressLine1.getText();
 		addr2 = tfAddressLine2.getText();
@@ -188,7 +206,10 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		telephone = tfTelephone.getText();
                 maxTokenNo=Integer.parseInt(tfMaxTokenNo.getText());
                 tokenNo=Integer.parseInt(tfTokenNo.getText());
+                mb_width=Integer.parseInt(tfMBWidth.getText());
+                mb_hieght=Integer.parseInt(tfMBHieght.getText());
 		//currencyName = tfCurrencyName.getText();
+                
 		//currencySymbol = tfCurrencySymbol.getText();
 
 		if (StringUtils.isEmpty(currencyName)) {
@@ -225,6 +246,8 @@ public class RestaurantConfigurationView extends ConfigurationView {
 		restaurant.setTicketFooterMessage(tfTicketFooter.getText());
                 restaurant.setMaxTokenNo(maxTokenNo);
                 restaurant.setTokenNo(tokenNo);
+                restaurant.setMbWidth(mb_width);
+                restaurant.setMbHieght(mb_hieght);
 		dao.saveOrUpdate(restaurant);
 
 		Application.getInstance().refreshRestaurant();
@@ -257,6 +280,16 @@ public class RestaurantConfigurationView extends ConfigurationView {
                     tfTokenNo.setText("0");
                 else
                     tfTokenNo.setText(String.valueOf(restaurant.getTokenNo()));
+                 
+                if(String.valueOf(restaurant.getMbWidth())=="null")
+                    tfMBWidth.setText("90");
+                else
+                    tfMBWidth.setText(String.valueOf(restaurant.getMbWidth()));
+                
+                if(String.valueOf(restaurant.getMbHieght())=="null")
+                    tfMBHieght.setText("60");
+                else
+                    tfMBHieght.setText(String.valueOf(restaurant.getMbHieght()));
                 
 		setInitialized(true);
 	}

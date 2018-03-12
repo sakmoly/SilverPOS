@@ -54,6 +54,9 @@ import com.floreantpos.swing.PosUIManager;
 import com.floreantpos.ui.views.order.actions.ItemSelectionListener;
 import com.floreantpos.util.CurrencyUtil;
 
+import com.floreantpos.model.Restaurant;
+import com.floreantpos.model.dao.RestaurantDAO;
+
 /**
  * 
  * @author MShahriar
@@ -67,11 +70,15 @@ public class MenuItemView extends SelectionView {
 	private Map<Integer, ItemButton> menuItemButtonMap = new HashMap<Integer, MenuItemView.ItemButton>();
 	private boolean showPrice;
 	private boolean showStockCount;
-
+        
+        static RestaurantDAO dao = new RestaurantDAO();
+        static Restaurant restaurant = dao.get(Integer.valueOf(1));
+        private final static int buttonMWidth=restaurant.getMbWidth(); //Thomas
+        private final static int buttonMHeight=restaurant.getMbHieght();
 	/** Creates new form GroupView */
 	public MenuItemView() {
-		super(com.floreantpos.POSConstants.ITEMS, PosUIManager.getSize(90), PosUIManager.getSize(60));
-		//super(com.floreantpos.POSConstants.ITEMS, PosUIManager.getSize(120), PosUIManager.getSize(80));
+		//super(com.floreantpos.POSConstants.ITEMS, PosUIManager.getSize(90), PosUIManager.getSize(60));                
+		super(com.floreantpos.POSConstants.ITEMS, PosUIManager.getSize(buttonMWidth), PosUIManager.getSize(buttonMHeight));
                 remove(actionButtonPanel);
 
 		btnPrev.setText("<");

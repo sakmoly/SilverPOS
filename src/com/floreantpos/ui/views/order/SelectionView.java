@@ -43,6 +43,8 @@ import org.jdesktop.swingx.JXTitledSeparator;
 import com.floreantpos.POSConstants;
 import com.floreantpos.config.TerminalConfig;
 import com.floreantpos.swing.PosButton;
+import com.floreantpos.swing.PosUIManager;
+import java.io.Console;
 
 public abstract class SelectionView extends JPanel implements ComponentListener {
 	private final static int HORIZONTAL_GAP = 5;
@@ -70,6 +72,9 @@ public abstract class SelectionView extends JPanel implements ComponentListener 
 
 	public SelectionView(String title, int buttonWidth, int buttonHeight) {
 		this.title = title;
+                
+                System.out.println("Width="+buttonWidth);
+                System.out.println("Hieght="+buttonHeight);
 		this.buttonSize = new Dimension(buttonWidth, buttonHeight);
 
 		border = new TitledBorder(title);

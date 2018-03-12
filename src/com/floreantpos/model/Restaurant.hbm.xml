@@ -23,5 +23,7 @@
     <property column="ALLOW_MODIFIER_MAX_EXCEED" name="allowModifierMaxExceed" type="java.lang.Boolean"/>
     <property column="TOKEN_NO" name="tokenNo" type="java.lang.Integer"/>
     <property column="MAX_TOKEN_NO" name="maxTokenNo" type="java.lang.Integer"/>
+    <property column="MB_WIDTH" name="mbWidth" type="java.lang.Integer"/>
+    <property column="MB_HIEGHT" name="mbHieght" type="java.lang.Integer"/>
   </class>
 </hibernate-mapping>

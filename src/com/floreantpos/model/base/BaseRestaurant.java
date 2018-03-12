@@ -34,6 +34,8 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 	public static String PROP_CURRENCY_SYMBOL = "currencySymbol"; //$NON-NLS-1$
         public static String PROP_MAX_TOKEN_NO = "MaxTokenNo"; //$NON-NLS-1$
         public static String PROP_TOKEN_NO = "tokenNo"; //$NON-NLS-1$
+        public static String PROP_MB_WIDTH = "MB_Width"; //$NON-NLS-1$
+        public static String PROP_MB_HIEGHT = "MB_Hieght"; //$NON-NLS-1$
 
 
 	// constructors
@@ -77,6 +79,8 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 		protected java.lang.Boolean allowModifierMaxExceed;
                 protected java.lang.Integer maxTokenNo;
                 protected java.lang.Integer tokenNo;
+                protected java.lang.Integer mbWidth;
+                protected java.lang.Integer mbHieght;
 
 
 
@@ -384,6 +388,22 @@ public Integer getMaxTokenNo() {
 
     public void setTokenNo(Integer tokenNo) {
         this.tokenNo = tokenNo;
+    }
+    
+    public Integer getMbWidth() {
+        return mbWidth;
+    }
+
+    public void setMbWidth(Integer width) {
+        this.mbWidth = width;
+    }
+    
+    public Integer getMbHieght() {
+        return mbHieght;
+    }
+
+    public void setMbHieght(Integer hieght) {
+        this.mbHieght = hieght;
     }
 
 
