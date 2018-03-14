@@ -285,6 +285,7 @@ public class TicketView extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (ticket.getOrderType().isHasForHereAndToGo()) {
+                                //if (true) {
 					OrderTypeSelectionDialog2 dialog = new OrderTypeSelectionDialog2(ticket);
 					dialog.open();
 
@@ -293,6 +294,7 @@ public class TicketView extends JPanel {
 					}
 					String orderType = dialog.getSelectedOrderType();
 					if (orderType != null) {
+                                                ticket.setTicketType(orderType);
 						ticket.updateTicketItemPriceByOrderType(orderType);
 						updateModel();
 						updateView();
